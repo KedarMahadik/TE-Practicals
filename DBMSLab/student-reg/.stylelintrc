@@ -1,0 +1,6 @@
+{
+  "ignoreFiles": [
+    "app.js"
+  ],
+  "extends": "stylelint-config-standard"
+}

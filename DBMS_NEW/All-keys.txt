@@ -1,0 +1,45 @@
+In relational databases, various types of keys are used to uniquely identify rows, define relationships between tables, and ensure data integrity. Here are some common types of keys and their differences:
+
+### 1. **Primary Key**
+   - **Definition**: A primary key is a unique identifier for each row in a table. Each table can have only one primary key, and it cannot contain `NULL` values.
+   - **Purpose**: Ensures each record is unique and can be efficiently referenced.
+   - **Example**: In an `employee` table, `employee_id` might be the primary key.
+
+### 2. **Foreign Key**
+   - **Definition**: A foreign key is a field (or a set of fields) in one table that uniquely identifies a row in another table, establishing a link between the two tables.
+   - **Purpose**: Enforces referential integrity by ensuring that a value in one table corresponds to a valid entry in the referenced table.
+   - **Example**: In an `order` table, `customer_id` could be a foreign key linking to a `customer_id` in a `customer` table.
+
+### 3. **Unique Key**
+   - **Definition**: A unique key constraint ensures that all values in a column or set of columns are unique across the table. Unlike primary keys, a table can have multiple unique keys, and they may contain a single `NULL` value.
+   - **Purpose**: Prevents duplicate values in a specific column or combination of columns, though it allows one `NULL` value per column.
+   - **Example**: In a `user` table, an `email` column could have a unique constraint to prevent duplicate email addresses.
+
+### 4. **Candidate Key**
+   - **Definition**: A candidate key is a column or set of columns that could potentially be chosen as the primary key. Candidate keys are unique and contain no `NULL` values.
+   - **Purpose**: Provides a pool of columns that could uniquely identify records, from which one is typically chosen as the primary key.
+   - **Example**: In a `student` table, both `student_id` and `passport_number` could serve as candidate keys since they uniquely identify students.
+
+### 5. **Composite Key**
+   - **Definition**: A composite key is a primary key that consists of two or more columns. It is used when no single column can uniquely identify rows in a table.
+   - **Purpose**: Ensures uniqueness in cases where a single column is insufficient for unique identification.
+   - **Example**: In a `class_enrollment` table, the combination of `student_id` and `class_id` could be used as a composite key, as each student can enroll in multiple classes.
+
+### 6. **Super Key**
+   - **Definition**: A super key is any combination of columns that uniquely identifies rows in a table. It includes candidate keys and can have additional attributes.
+   - **Purpose**: Represents all possible sets of columns that can uniquely identify rows, though not all are minimal like candidate keys.
+   - **Example**: If `employee_id` is a candidate key, then `employee_id` combined with `department_id` would also be a super key.
+
+### 7. **Alternate Key**
+   - **Definition**: An alternate key is a candidate key that was not chosen as the primary key. It still uniquely identifies rows and can be used for indexing or constraints.
+   - **Purpose**: Provides additional unique identifiers for a table that aren’t used as the primary reference.
+   - **Example**: In a `car` table, `vin` (vehicle identification number) and `license_plate` could both serve as unique identifiers. If `vin` is the primary key, then `license_plate` is an alternate key.
+
+### Key Differences Summary:
+- **Primary Key**: One per table, no `NULL`s, uniquely identifies rows.
+- **Foreign Key**: Enforces links between tables, references a primary or unique key in another table.
+- **Unique Key**: Ensures uniqueness in a column, allows one `NULL`.
+- **Candidate Key**: Potential choices for primary key, minimal and unique.
+- **Composite Key**: Multiple columns as a unique identifier, used when one column is insufficient.
+- **Super Key**: Any set of columns that uniquely identifies rows; includes candidate keys.
+- **Alternate Key**: Candidate keys not chosen as primary key, still unique.

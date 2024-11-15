@@ -1,0 +1,65 @@
+DBMS ORAL QUESTIONS (MYSQL)------------------------------------
+
+1. What is the role of aggregate functions in SQL, and how does MAX() differ from other aggregate functions like SUM() and AVG()?
+Answer:
+Aggregate functions in SQL perform calculations on multiple rows of data to return a single value. They are often used with GROUP BY to analyze grouped data. MAX() finds the highest value in a column, while SUM() adds up values, and AVG() calculates the average. MAX() is especially useful for finding peak values, like the highest salary or latest hire date.
+
+2. Explain how pattern matching works with the LIKE operator in SQL, and describe scenarios where you might use wildcards such as % and _ in filtering data.
+Answer:
+The LIKE operator allows pattern-based searches within strings. % matches any sequence of characters (including zero characters), while _ matches exactly one character. For instance, 'A%' finds values starting with 'A', and 'C_r%' finds values starting with 'C', having any character next, followed by 'r'.
+
+3. How does SQL handle date comparisons, and why is it essential to use a specific date format (e.g., 'YYYY-MM-DD') in WHERE clauses for consistent filtering?
+Answer:
+SQL interprets dates according to the format specified by the database system, commonly 'YYYY-MM-DD'. Using this standard format ensures that SQL correctly understands the date, preventing errors in filtering. For instance, comparing '1981-09-30' accurately selects rows with dates before or after this point, depending on the condition.
+
+4. What is the significance of the ORDER BY clause, and what impact does specifying ASC or DESC have on query results?
+Answer:
+The ORDER BY clause sorts results based on specified columns. ASC arranges results in ascending order, while DESC arranges them in descending order. This is useful for viewing data by highest-to-lowest values (like salaries) or chronological order.
+
+5. Describe the role of GROUP BY in SQL queries. How does it differ from the ORDER BY clause, and why is GROUP BY necessary for aggregate functions like COUNT() and AVG()?
+Answer:
+GROUP BY organizes rows with the same values in specified columns into groups, allowing aggregate functions to calculate values for each group. Unlike ORDER BY, which only sorts results, GROUP BY enables analysis of data across subsets. For instance, GROUP BY deptno groups employees by department.
+
+6. In SQL, what is an INNER JOIN, and how does it differ from LEFT JOIN and RIGHT JOIN? Provide examples of scenarios where each type of join might be preferable.
+Answer:
+An INNER JOIN returns rows where there is a match in both joined tables. LEFT JOIN includes all rows from the left table and matched rows from the right, with NULLs where there’s no match. RIGHT JOIN does the opposite, including all rows from the right table. Use INNER JOIN when only matching data is needed, LEFT JOIN to include unmatched left-side rows, and RIGHT JOIN to include unmatched right-side rows.
+
+7. How does the SUM() function work in SQL, and why is it commonly used alongside GROUP BY? Explain how SUM() can be used to calculate total values across groups.
+Answer:
+SUM() calculates the total of a column’s values across rows. When combined with GROUP BY, it aggregates values per group. For instance, calculating total salary per department uses GROUP BY deptno with SUM(salary), adding salaries within each department group.
+
+8. Why is it important to use specific filtering conditions in WHERE clauses, especially in joined queries involving multiple tables? How does this ensure accurate and efficient data retrieval?
+Answer:
+Using precise WHERE conditions focuses the query on relevant data, improving efficiency by reducing unnecessary rows in the result set. In joins, filtering within WHERE prevents duplicate or irrelevant records, enhancing both performance and accuracy.
+
+9. What is the purpose of the UPDATE statement in SQL, and how can mathematical operations (e.g., salary = salary * 1.05) be applied within SET to update specific values in the database?
+Answer:
+UPDATE modifies existing data. In the SET clause, you can use arithmetic expressions like salary = salary * 1.05 to adjust values based on conditions in WHERE. This example increases salaries by 5% in a particular department.
+
+10. Explain the purpose and syntax of the AS keyword in SQL. How does using AS to define column aliases enhance query readability and usability in complex queries?
+Answer:
+AS creates column or table aliases to rename results, enhancing readability, especially with complex expressions. For example, MAX(salary) AS HighestSalary clarifies the meaning of the returned data. Aliases simplify referencing columns and improve readability.
+
+Additional Conceptual Questions:
+
+Is CREATE a DDL or DML command, and what is its purpose in SQL?
+Answer: CREATE is a DDL (Data Definition Language) command used to create new database objects like tables, views, and databases. It defines the structure but does not manipulate data within the tables.
+
+Explain the difference between DDL and DML in SQL, and provide examples of each.
+Answer: DDL (Data Definition Language) commands define or alter the structure of a database (e.g., CREATE, ALTER, DROP). DML (Data Manipulation Language) commands interact with the data (e.g., INSERT, UPDATE, DELETE, SELECT).
+What is a PRIMARY KEY in SQL, and why is it important in table creation?
+Answer: A PRIMARY KEY uniquely identifies each record in a table, ensuring data integrity by preventing duplicate entries in that column. It's essential for establishing relationships in relational databases.
+What does the ALTER command do in SQL, and which SQL command type does it belong to?
+Answer: ALTER is a DDL command used to modify an existing database structure, such as adding or deleting columns from a table or changing data types.
+Is the SELECT statement a DML or DQL command, and what is its primary use?
+Answer: SELECT is generally considered a DQL (Data Query Language) command, though often grouped with DML. It retrieves data from tables, often with conditions to filter results.
+What are constraints in SQL, and name a few commonly used constraints?
+Answer: Constraints are rules applied to table columns to enforce data integrity. Common constraints include PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, and CHECK.
+Explain the concept of a FOREIGN KEY. How does it establish relationships between tables?
+Answer: A FOREIGN KEY in one table references a PRIMARY KEY in another, creating a link between related records. It enforces referential integrity, ensuring that data in one table corresponds to valid entries in the related table.
+What is the difference between DELETE and TRUNCATE in SQL, and which category (DDL or DML) does each belong to?
+Answer: DELETE is a DML command used to remove specific rows with conditions, allowing rollback if needed. TRUNCATE is a DDL command that quickly deletes all rows in a table without conditions and cannot be rolled back in most systems.
+Define the DROP command and explain its impact on the database.
+Answer: DROP is a DDL command that permanently deletes database objects like tables or entire databases, removing both structure and data.
+What is COMMIT in SQL, and when should it be used?
+Answer: COMMIT is a transaction control command that saves all changes made in the current transaction to the database. It should be used after a series of DML operations that need to be finalized, making them permanent.
